@@ -1,0 +1,27 @@
+# dependencias y build
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+
+# tests
+coverage/
+playwright-report/
+test-results/
+
+# entorno local
+.env
+.env.*
+!.env.example
+.vercel/
+
+# originales de imagen (solo se versionan las WebP optimizadas)
+images-src/
+
+# informes de Lighthouse y otros temporales de medición
+.lighthouse/
+
+# sistema
+.DS_Store
+Thumbs.db
