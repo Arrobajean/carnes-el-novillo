@@ -17,9 +17,9 @@ export function ProductGrid({ products }: ProductGridProps) {
   }
   return (
     <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-label="Productos">
-      {products.map((product) => (
+      {products.map((product, index) => (
         <li key={product.slug}>
-          <ProductCard product={product} />
+          <ProductCard product={product} priority={index < 3} />
         </li>
       ))}
     </ul>

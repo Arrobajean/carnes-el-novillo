@@ -21,7 +21,14 @@ export function ReservationView({ minDate, maxDate }: ReservationViewProps) {
   const isClient = useIsClient();
   const { values, errors, submitError, pending, update, submit, slots, cart } = useReservationForm();
 
-  if (!isClient) return <p className="mx-auto max-w-6xl px-4 py-10 text-muted sm:px-6">Cargando tu reserva…</p>;
+  // El marcador ocupa la altura del estado vacío para no mover el pie al hidratar.
+  if (!isClient) {
+    return (
+      <div aria-busy="true" className="mx-auto flex min-h-[19rem] max-w-6xl items-center px-4 py-10 text-muted sm:px-6">
+        <p>Cargando tu reserva…</p>
+      </div>
+    );
+  }
   if (cart.isEmpty) return <EmptyCart />;
 
   async function handleSubmit() {

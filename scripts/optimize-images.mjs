@@ -9,7 +9,7 @@ import sharp from "sharp";
 const SRC = "images-src";
 const DEST = "public/images";
 const GROUPS = ["products", "brand"];
-const MAX_SIDE = 1200; // las fotos originales son más pequeñas: nunca se amplían
+const MAX_SIDE = 800; // la ficha muestra la foto a unos 700 px como máximo: no se sirven tamaños mayores
 const QUALITY = 80;
 const INPUT_EXTENSIONS = new Set([".webp", ".png", ".jpg", ".jpeg"]);
 
