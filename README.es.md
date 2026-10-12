@@ -22,13 +22,13 @@ El tema oscuro sigue la preferencia del sistema: ![Portada en tema oscuro](docs/
 - **Lógica separada de la interfaz.** Funciones puras en `src/lib`, estado en `src/hooks`, presentación en `src/components`. Ningún componente llama a `fetch`; hay un solo cliente de API.
 - **Accesibilidad como prueba, no como afirmación.** axe revisa todas las páginas en tema claro y oscuro, en escritorio y en móvil, con WCAG 2.1 AA y buenas prácticas. La suite falla ante cualquier infracción.
 - **Contenido como datos tipados.** Los 40 productos están en `src/content`. Una prueba comprueba que existe cada foto, que los identificadores son únicos, que los precios son enteros positivos y que cada producto pertenece a una categoría definida. Otra falla si aparece un guion largo o medio en el contenido.
-- **Textos honestos.** El horario y la moneda aparecen como pendientes de confirmar en el aviso (`/aviso`). Se han retirado las reseñas, certificaciones y afirmaciones de entrega de la web anterior (ver más abajo).
+- **Textos honestos.** El horario y el correo de contacto aparecen como pendientes de confirmar en el aviso (`/aviso`). Los precios están en pesos chilenos (CLP). Se han retirado las reseñas, certificaciones y afirmaciones de entrega de la web anterior (ver más abajo).
 
 ## Calidad
 
 | Qué | Cómo | Cantidad |
 |---|---|---|
-| Pruebas unitarias (lógica e integridad del contenido) | Vitest | 50 pruebas en 12 ficheros |
+| Pruebas unitarias (lógica e integridad del contenido) | Vitest | 53 pruebas en 13 ficheros |
 | End-to-end, contrato de la API y accesibilidad | Playwright + axe | 53 ejecuciones: 17 de flujo y API en escritorio, 36 de accesibilidad en 4 proyectos (claro y oscuro, escritorio y móvil) |
 | Tipos | `tsc --noEmit`, `strict` + `noUncheckedIndexedAccess` | limpio |
 | Lint | ESLint 9, `next/core-web-vitals` | limpio |
@@ -78,7 +78,7 @@ scripts/        Optimización de imágenes (images-src a public/images, en WebP)
 
 La web anterior publicaba afirmaciones que esta reconstrucción no repite, porque nada en el repositorio las demuestra:
 
-- **Opiniones de clientes.** Venían con avatares y nombres genéricos de banco de imágenes, así que se trataron como inventadas y se retiraron.
+- **Opiniones de clientes.** Las de la web anterior venían con avatares y nombres genéricos de banco de imágenes, así que se trataron como inventadas y se retiraron. La portada muestra ahora tres reseñas de ejemplo, con nombres ficticios y sin fotos, bajo el rótulo "Reseñas de ejemplo, no son reales"; el aviso también lo dice.
 - **Año de fundación, proveedores certificados y afirmaciones de sostenibilidad.** No verificadas, retiradas.
 - **Entrega a domicilio y medios de pago.** Esta demostración no entrega ni cobra, así que se retiraron.
 - **Valores nutricionales por producto.** No tenían fuente, así que se retiraron.
@@ -89,7 +89,7 @@ La web anterior publicaba afirmaciones que esta reconstrucción no repite, porqu
 - **Las reservas no son duraderas.** Viven en la memoria del servidor y se pierden al reiniciarlo.
 - **La comprobación de aforo no es atómica.** Dos peticiones simultáneas pueden pasarla a la vez. Una base de datos real necesita una transacción en `ReservationRepository.save`, documentada en la interfaz.
 - **Sin pagos, correos ni vista para el personal.** No hay una pantalla en el local para las reservas entrantes.
-- **Horario y moneda pendientes de confirmar.** El horario publicado viene de la web anterior y se muestra con esa advertencia en `/aviso`.
+- **Horario y correo pendientes de confirmar.** El horario publicado viene de la web anterior y se muestra con esa advertencia en `/aviso`.
 - **La política de aforo y antelación es un valor de demostración** (4 por franja, 2 horas, 7 días) y figura como pendiente en `/aviso`.
 - **Sin festivos.** El horario es solo semanal.
 - **Solo en español.**

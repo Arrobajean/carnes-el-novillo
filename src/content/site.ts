@@ -13,7 +13,7 @@ export const SITE = {
     { label: "Instagram", href: "https://www.instagram.com/carneselnovillo/" },
     { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61550850388071" },
   ],
-  /** Moneda de los importes. Pendiente de confirmar por el negocio. */
+  /** Moneda de los importes: pesos chilenos. */
   currency: "CLP",
   /** Zona horaria de las franjas de recogida. */
   timezone: "America/Santiago",

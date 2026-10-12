@@ -1,5 +1,5 @@
 // Catálogo de productos. Textos e importes proceden de la web anterior del negocio.
-// Los importes son CLP enteros y se muestran como "por confirmar" en /aviso.
+// Los importes son pesos chilenos (CLP) enteros, de la web anterior.
 // Las fotos se generan desde images-src/products con `pnpm images`.
 import type { Product } from "@/lib/types";
 

@@ -22,13 +22,13 @@ The dark theme follows the system preference: ![Home in dark theme](docs/screens
 - **Logic separated from UI.** Pure functions in `src/lib`, state in `src/hooks`, presentation in `src/components`. No component calls `fetch`; there is one API client.
 - **Accessibility as a test, not a claim.** axe runs over every page in light and dark themes, on desktop and mobile, with WCAG 2.1 AA and best-practice rules. The suite fails on any violation.
 - **Content as typed data.** 40 products live in `src/content`. A test checks that every photo exists, slugs are unique, prices are positive integers and every product belongs to a defined category. Another test fails if an em dash or en dash appears in the content.
-- **Honest copy.** Opening hours and currency are marked as pending confirmation in the notice (`/aviso`). The old site's reviews, certifications and delivery claims were removed (see below).
+- **Honest copy.** Opening hours and the contact email are marked as pending confirmation in the notice (`/aviso`). Prices are in Chilean pesos (CLP). The old site's reviews, certifications and delivery claims were removed (see below).
 
 ## Quality
 
 | What | How | Count |
 |---|---|---|
-| Unit tests (logic and content integrity) | Vitest | 50 tests in 12 files |
+| Unit tests (logic and content integrity) | Vitest | 53 tests in 13 files |
 | End-to-end, API contract and accessibility | Playwright + axe | 53 runs: 17 flow and API tests on desktop, 36 accessibility runs in 4 projects (light and dark, desktop and mobile) |
 | Types | `tsc --noEmit`, `strict` + `noUncheckedIndexedAccess` | clean |
 | Lint | ESLint 9, `next/core-web-vitals` | clean |
@@ -78,7 +78,7 @@ scripts/        Image optimisation (images-src -> public/images, WebP)
 
 The earlier site published several claims this rebuild does not repeat, because nothing in the repository proves them:
 
-- **Customer reviews.** The reviews came with generic stock avatars and names, so they were treated as invented and removed.
+- **Customer reviews.** The old reviews came with generic stock avatars and names, so they were treated as invented and removed. The home page now shows three example reviews with invented names and no photos, under the label "Reseñas de ejemplo, no son reales"; the notice says so too.
 - **Founding year, certified suppliers and sustainability claims.** Not verified, removed.
 - **Delivery and payment methods.** This demonstration does not deliver or charge, so the claims were removed.
 - **Nutritional values per product.** They were not sourced, so they were removed.
@@ -89,7 +89,7 @@ The earlier site published several claims this rebuild does not repeat, because 
 - **Reservations are not durable.** They live in server memory and are lost on restart.
 - **The slot capacity check is not atomic.** Two simultaneous requests can both pass it. A real database needs a transaction in `ReservationRepository.save`, as documented in the interface.
 - **No payments, emails or staff view.** There is no shop-side screen for incoming reservations.
-- **Opening hours and currency are pending confirmation.** The published hours come from the previous site and are shown with that caveat on `/aviso`.
+- **Opening hours and contact email are pending confirmation.** The published hours come from the previous site and are shown with that caveat on `/aviso`.
 - **The capacity and lead-time policy is a demonstration value** (4 per slot, 2 hours, 7 days) and is marked as pending on `/aviso`.
 - **No public holidays.** Hours are weekly only.
 - **Spanish only.**

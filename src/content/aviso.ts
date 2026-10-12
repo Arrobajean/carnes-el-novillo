@@ -10,6 +10,7 @@ export const AVISO_SECTIONS: readonly { title: string; paragraphs: readonly stri
     paragraphs: [
       "Este sitio es una demostración técnica. Carnes El Novillo no ha contratado su desarrollo ni lo gestiona como canal de venta oficial.",
       "Los productos, precios y textos proceden de la web anterior del negocio y pueden no estar actualizados.",
+      "Las opiniones de la portada son reseñas de ejemplo, no son reales. Sus nombres son ficticios.",
     ],
   },
   {
@@ -29,7 +30,8 @@ export const AVISO_SECTIONS: readonly { title: string; paragraphs: readonly stri
     title: "Datos pendientes de confirmar",
     paragraphs: [
       "Horario de atención: por confirmar con el negocio.",
-      "Moneda y precios: por confirmar con el negocio. Los importes mostrados son los de la web anterior.",
+      "Correo de contacto: por confirmar con el negocio.",
+      "Precios en pesos chilenos (CLP). Los importes son los de la web anterior y pueden no estar actualizados.",
       "Políticas de reserva (antelación, aforo por franja y plazo de 7 días): valores de demostración, por confirmar.",
     ],
   },

@@ -17,6 +17,7 @@ test.describe("portada y catálogo", () => {
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Reserva tus cortes");
     await expect(page.getByRole("link", { name: "Ver el catálogo" })).toBeVisible();
     await expect(page.getByRole("heading", { name: "Explora por categoría" })).toBeVisible();
+    await expect(page.getByText("Reseñas de ejemplo, no son reales")).toBeVisible();
   });
 
   test("el catálogo filtra por categoría y por búsqueda", async ({ page }) => {
@@ -88,7 +89,8 @@ test.describe("aviso", () => {
     await page.goto("/aviso");
     await expect(page.getByRole("heading", { level: 1, name: "Aviso de demostración" })).toBeVisible();
     await expect(page.getByText("Horario de atención: por confirmar con el negocio.")).toBeVisible();
-    await expect(page.getByText("Moneda y precios: por confirmar con el negocio.", { exact: false })).toBeVisible();
+    await expect(page.getByText("Correo de contacto: por confirmar con el negocio.")).toBeVisible();
+    await expect(page.getByText("Precios en pesos chilenos (CLP).", { exact: false })).toBeVisible();
   });
 
   test("el pie de página enlaza al aviso", async ({ page }) => {

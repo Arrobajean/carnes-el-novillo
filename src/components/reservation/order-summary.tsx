@@ -15,7 +15,7 @@ export function OrderSummary({ totalClp, itemCount }: OrderSummaryProps) {
         <span className="font-semibold">Total</span>
         <span className="font-display text-3xl font-bold">{formatClp(totalClp)}</span>
       </p>
-      <p className="text-sm text-muted">Importe orientativo, por confirmar. Esta demostración no cobra nada.</p>
+      <p className="text-sm text-muted">Importe orientativo en pesos chilenos (CLP). Esta demostración no cobra nada.</p>
     </div>
   );
 }
