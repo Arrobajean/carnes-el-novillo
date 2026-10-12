@@ -1,1 +1,92 @@
 @import "tailwindcss";
+
+/*
+ * Tokens de color. Un solo tema por página: claro u oscuro según el sistema.
+ * Contraste de texto sobre fondo >= 4.5:1 en ambos temas (WCAG AA).
+ */
+:root {
+  color-scheme: light;
+  --paper: #f4f5f1;
+  --surface: #ffffff;
+  --ink: #1c2024;
+  --muted: #4f5660;
+  --line: #cfd3ca;
+  --accent: #9b1c22;
+  --accent-strong: #7e1419;
+  --accent-ink: #ffffff;
+  --focus: #1a4fa0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --paper: #121416;
+    --surface: #1c2025;
+    --ink: #eceee9;
+    --muted: #b3bac3;
+    --line: #3a414a;
+    --accent: #ef7174;
+    --accent-strong: #f59295;
+    --accent-ink: #121416;
+    --focus: #8fb8ff;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-ink: var(--accent-ink);
+  --color-focus: var(--focus);
+  --font-display: var(--font-display-face), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body-face), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100dvh;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* Movimiento sólo como refuerzo y nunca si el usuario lo ha desactivado. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
